@@ -30,12 +30,6 @@ def predict_nsp(input_data):
 
     return predictions
 
-# Function to evaluate model accuracy
-def evaluate_accuracy(X, y):
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    y_pred = model.predict(X_test)
-    accuracy = accuracy_score(y_test, y_pred)
-    return accuracy
 
 # Streamlit web app
 def main():
