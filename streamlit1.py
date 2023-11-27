@@ -53,15 +53,5 @@ def main():
         prediction = predict_nsp(input_data)
         st.write(f"Predicted NSP: {prediction[0]}")
 
-    # Evaluate model accuracy
-    data = pd.read_excel("CTG_resampled.xlsx")  # ini diisi dengan data faktual
-    features_to_exclude = ['DR', 'DS', 'Nzeros', 'FileName', 'Date', 'SegFile','A','B','C','D','E','AD','DE','LD','FS','SUSP','CLASS','b','e'] # ini kolom yang dikecualikan, ada 5
-    X = data.drop(['NSP'] + features_to_exclude, axis=1)  # pengecualian kolom target dan kolom fitur yang tidak diinginkan, jadi disini ada 6 kolom yang dihindari
-    y = data['NSP']  # Menggunakan kolom 'NSP' sebagai target
-
-
-    accuracy = evaluate_accuracy(X, y)
-    st.write(f"Model Accuracy: {accuracy:.2%}")
-
 if __name__ == "__main__":
     main()
